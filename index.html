@@ -10,6 +10,9 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Weather Dashboard</title>
   </head>
@@ -17,7 +20,7 @@
     <div class="container-fluid">
       <div class="row">
         <header class="col">
-          <h1 class="text-center">Weather Dashboard</h1>
+          <h1 class="text-center fw-bold">Weather Dashboard</h1>
         </header>
       </div>
 
@@ -29,7 +32,7 @@
               >Search for a City:</label
             >
             <input type="text" id="citySearch" class="form-control mb-2" />
-            <button type="submit" class="btn bg-primary text-light" id="submit">
+            <button type="submit" class="btn text-light" id="submit">
               Search
             </button>
           </form>
@@ -38,67 +41,11 @@
         </div>
         <!-- Current Day Forecast -->
         <div class="col-8" id="currentDiv">
-          <!-- <div class="card">
-            <div class="card-body">
-              <h2 class="card-title"></h2>
-              <p class="card-text" id="temp"></p>
-              <p class="card-text" id="wind"></p>
-              <p class="card-text" id="humidity"></p>
-              <p class="card-text" id="uvIndex"></p>
-            </div>
-          </div> -->
         </div>
         <!-- Search History Container -->
         <div class="col-4" id="searchHistory"></div>
         <!-- Five Day Forecast -->
         <div class="col-8 my-5" id="fiveDayDiv">
-          <!-- <h3>5-Day Forecast:</h3> -->
-          <!-- <div class="card-group"> -->
-            <!-- <div class="card">
-              <div class="card-body">
-                <h4 class="card-title" id="cTitle">Date</h4>
-                <p class="card-text" id="cTemp">Temp:</p>
-                <p class="card-text" id="cWind">Wind:</p>
-                <p class="card-text" id="cHumidity">Humidity:</p>
-                <p class="card-text" id="cuvIndex">UV Index:</p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <h4 class="card-title">Date</h4>
-                <p class="card-text" id="temp">Temp:</p>
-                <p class="card-text" id="wind">Wind:</p>
-                <p class="card-text" id="humidity">Humidity:</p>
-                <p class="card-text" id="uvIndex">UV Index:</p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <h4 class="card-title">Date</h4>
-                <p class="card-text" id="temp">Temp:</p>
-                <p class="card-text" id="wind">Wind:</p>
-                <p class="card-text" id="humidity">Humidity:</p>
-                <p class="card-text" id="uvIndex">UV Index:</p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <h4 class="card-title">Date</h4>
-                <p class="card-text" id="temp">Temp:</p>
-                <p class="card-text" id="wind">Wind:</p>
-                <p class="card-text" id="humidity">Humidity:</p>
-                <p class="card-text" id="uvIndex">UV Index:</p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <h4 class="card-title">Date</h4>
-                <p class="card-text" id="temp">Temp:</p>
-                <p class="card-text" id="wind">Wind:</p>
-                <p class="card-text" id="humidity">Humidity:</p>
-                <p class="card-text" id="uvIndex">UV Index:</p>
-              </div>
-            </div> -->
           </div>
         </div>
       </div>

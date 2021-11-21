@@ -3,13 +3,8 @@ var previousCities = [];
 
 //FUNCTION DECLARATIONS
 //Fetch function to retrieve JSON object from Geocoding API
-function cityInput(event) {
-  event.preventDefault();
-  var userCity = document.querySelector("#citySearch");
-  var userInput = userCity.value;
+function cityInput(userInput) {
   var requestCoords = `http://api.openweathermap.org/data/2.5/weather?q=${userInput}&units=imperial&appid=1e8f3b63f2a5f1aa61e5202369bced42`;
-
-  searchHistory(userInput);
 
   //Since One Call requires coordinates instead of city, this retrieves coordinates from a current weather API call
   fetch(requestCoords)
@@ -36,6 +31,15 @@ function cityInput(event) {
     });
 }
 
+function searchHandler(event) {
+  event.preventDefault();
+  var userCity = document.querySelector("#citySearch");
+  var userInput = userCity.value;
+  addCity(userInput);
+  searchHistory();
+  cityInput(userInput);
+}
+
 //Dynamically creates Current Day Forecast Card and populates with info from the Weather API
 function createCurrent(obj, cityName) {
   //Select Current Card Div and empties it
@@ -43,7 +47,7 @@ function createCurrent(obj, cityName) {
   currentDiv.innerHTML = "";
   //Dynamically creates structure of the card
   var currentCard = document.createElement("div");
-  currentCard.setAttribute("class", "card");
+  currentCard.setAttribute("class", "card currentCard my-3");
   currentDiv.appendChild(currentCard);
   var cardBody = document.createElement("div");
   cardBody.setAttribute("class", "card-body");
@@ -114,7 +118,7 @@ function cardCreation(arr) {
     fiveDayGroup.appendChild(fiveDayCard);
     //Creates card body and appends to card div
     var fiveDayBody = document.createElement("div");
-    fiveDayBody.setAttribute("class", "card-body cardContent");
+    fiveDayBody.setAttribute("class", "card-body cardContent m-2");
     fiveDayCard.appendChild(fiveDayBody);
     //Creates title and appends to card-body div
     var fiveDayTitle = document.createElement("h4");
@@ -187,27 +191,30 @@ function uvColors(span, num) {
   span.append(num);
 }
 
-//EVENT HANDLERS
-//Click Event listener on the submit button which is connected to a function to create cards
-document.querySelector("#submit").addEventListener("click", cityInput);
-
-//PRACTICE AREA
 function searchHistory() {
-  localStorage.getItem("city");
+  var searchHistory = document.querySelector("#searchHistory");
+  searchHistory.innerHTML = "";
+  previousCities = JSON.parse(localStorage.getItem("cities")) || [];
   for (i = 0; i < previousCities.length; i++) {
     var searchBtn = document.createElement("button");
-    var searchHistory = document.querySelector("#searchHistory");
     searchBtn.setAttribute("type", "button");
-    searchBtn.setAttribute("class", "btn btn-secondary d-block");
+    searchBtn.setAttribute("class", "btn btnPrevious d-block");
+    searchBtn.setAttribute("city", previousCities[i]);
     searchBtn.append(previousCities[i]);
     searchHistory.appendChild(searchBtn);
+    searchBtn.addEventListener("click", function (event) {
+      cityInput(event.target.getAttribute("city"));
+    });
   }
-
-  localStorage.setItem("city", previousCities);
 }
-//When user hits submit button, add city name to the previous cities array
-//Then create a button element
-//Add city name to button element text content
-//Append button element to Search History Div
 
-//When page loads, should retrieve all items in the previous cities array and append them to the Search History Div
+function addCity(city) {
+  previousCities.push(city);
+  localStorage.setItem("cities", JSON.stringify(previousCities));
+}
+
+searchHistory();
+
+//EVENT HANDLERS
+//Click Event listener on the submit button which is connected to a function to create cards
+document.querySelector("#submit").addEventListener("click", searchHandler);
