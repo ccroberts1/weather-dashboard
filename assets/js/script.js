@@ -4,7 +4,7 @@ var previousCities = [];
 //FUNCTION DECLARATIONS
 //Fetch function to retrieve JSON object from Geocoding API
 function cityInput(userInput) {
-  var requestCoords = `http://api.openweathermap.org/data/2.5/weather?q=${userInput}&units=imperial&appid=1e8f3b63f2a5f1aa61e5202369bced42`;
+  var requestCoords = `https://api.openweathermap.org/data/2.5/weather?q=${userInput}&units=imperial&appid=1e8f3b63f2a5f1aa61e5202369bced42`;
 
   //Since One Call requires coordinates instead of city, this retrieves coordinates from a current weather API call
   fetch(requestCoords)
@@ -15,7 +15,7 @@ function cityInput(userInput) {
       var cityLat = data.coord.lat;
       var cityLon = data.coord.lon;
       var cityName = data.name;
-      var requestCurrent = `http://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&units=imperial&appid=1e8f3b63f2a5f1aa61e5202369bced42`;
+      var requestCurrent = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&units=imperial&appid=1e8f3b63f2a5f1aa61e5202369bced42`;
 
       //This fetch actually retrieves the One Call API call
       fetch(requestCurrent)
