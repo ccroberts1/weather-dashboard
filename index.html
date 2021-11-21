@@ -22,6 +22,7 @@
       </div>
 
       <div class="row">
+        <!-- Search Box -->
         <div class="col-4">
           <form>
             <label for="citySearch" class="col-form-label"
@@ -35,29 +36,31 @@
           <hr />
           <div class="btn-group-vertical"></div>
         </div>
-
-        <div class="col-8">
-          <div class="card">
+        <!-- Current Day Forecast -->
+        <div class="col-8" id="currentDiv">
+          <!-- <div class="card">
             <div class="card-body">
-              <h2 class="card-title" id="currentTitle"></h2>
+              <h2 class="card-title"></h2>
               <p class="card-text" id="temp"></p>
               <p class="card-text" id="wind"></p>
               <p class="card-text" id="humidity"></p>
               <p class="card-text" id="uvIndex"></p>
             </div>
-          </div>
+          </div> -->
         </div>
-
-        <div class="col-8">
-          <h3>5-Day Forecast:</h3>
-          <div class="card-group">
-            <div class="card">
+        <!-- Search History Container -->
+        <div class="col-4" id="searchHistory"></div>
+        <!-- Five Day Forecast -->
+        <div class="col-8 my-5" id="fiveDayDiv">
+          <!-- <h3>5-Day Forecast:</h3> -->
+          <!-- <div class="card-group"> -->
+            <!-- <div class="card">
               <div class="card-body">
-                <h4 class="card-title">Date</h4>
+                <h4 class="card-title" id="cTitle">Date</h4>
                 <p class="card-text" id="cTemp">Temp:</p>
                 <p class="card-text" id="cWind">Wind:</p>
                 <p class="card-text" id="cHumidity">Humidity:</p>
-                <p class="card-text" id="cUvIndex">UV Index:</p>
+                <p class="card-text" id="cuvIndex">UV Index:</p>
               </div>
             </div>
             <div class="card">
@@ -95,7 +98,7 @@
                 <p class="card-text" id="humidity">Humidity:</p>
                 <p class="card-text" id="uvIndex">UV Index:</p>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

@@ -3,3 +3,10 @@ span {
   padding: 2px 15px;
   margin: 8px;
 }
+
+.cardContent {
+  background-color: #2d3436;
+  color: #dfe6e9;
+  margin-right: 5px;
+  border-radius: 5px;
+}
