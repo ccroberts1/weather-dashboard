@@ -83,7 +83,7 @@ function createCurrent(obj, cityName) {
   var weatherIcon = document.createElement("img");
   weatherIcon.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${icon}.png`
+    `https://openweathermap.org/img/wn/${icon}.png`
   );
   currentTitle.append(weatherIcon);
 
@@ -137,7 +137,7 @@ function cardCreation(arr) {
     var weatherIcon = document.createElement("img");
     weatherIcon.setAttribute(
       "src",
-      `http://openweathermap.org/img/wn/${icon}.png`
+      `https://openweathermap.org/img/wn/${icon}.png`
     );
     fiveDayBody.append(weatherIcon);
     //Creates p element for Temp and appends to card-body
